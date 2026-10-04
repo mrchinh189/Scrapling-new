@@ -46,7 +46,7 @@ Sửa `nvl_scraper/sources/__init__.py`:
   LmeSource("lme_aluminium", "https://www.lme.com/en/Metals/Non-ferrous/LME-Aluminium", "Nhôm"),
   ```
 - Website mới → tạo class kế thừa `Source` trong `nvl_scraper/sources/`, viết `parse(page)` trả về
-  danh sách `PriceRecord`, rồi thêm test với HTML mẫu trong `tests/nvl_scraper/fixtures/`.
+  danh sách `PriceRecord`, rồi thêm test với HTML mẫu trong `tests/nvl/fixtures/`.
 
 ## Chạy hằng ngày
 

@@ -6,8 +6,6 @@ from types import SimpleNamespace
 
 import pytest
 
-pytest.importorskip("openpyxl")
-
 from scrapling.parser import Selector
 
 from nvl_scraper.sources import InvestingSource, LmeSource, MpocSource, Ppi100Source
@@ -100,9 +98,9 @@ def test_storage_upsert_and_excel(tmp_path):
     cpo = next(r for r in latest if r["series"] == "Bursa settlement")
     assert cpo["price_date"] == "2026-10-01"
 
+    load_workbook = pytest.importorskip("openpyxl").load_workbook
     xlsx = tmp_path / "nvl_prices.xlsx"
     write_excel(xlsx, rows)
-    from openpyxl import load_workbook
 
     wb = load_workbook(xlsx)
     assert wb.sheetnames == ["Mới nhất", "Lịch sử"]
